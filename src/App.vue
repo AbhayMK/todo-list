@@ -75,6 +75,17 @@ export default {
     deleteTodoItem(id) {
       this.todoItems = this.todoItems.filter((item) => item.id !== id);
     },
+    toggleTodoCompletion(item) {
+      item.completed = !item.completed;
+      this.updateStatus(item);
+    },
+    updateStatus(item) {
+      if (item.completed) {
+        item.status = "Completed"; // Set status as "Completed" if checkbox is checked
+      } else {
+        item.status = "Yet to Start"; // Set status as "Yet to Start" if checkbox is unchecked
+      }
+    },
   },
 };
 </script>

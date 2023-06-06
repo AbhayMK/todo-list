@@ -36,7 +36,11 @@
             <input type="date" v-model="item.completionDate" />
           </td>
           <td>
-            <input type="checkbox" v-model="item.completed" />
+            <input
+              type="checkbox"
+              v-model="item.completed"
+              @change="toggleTodoCompletion(item)"
+            />
           </td>
           <td>
             <button @click="deleteTodoItem(item.id)">Delete</button>
@@ -91,7 +95,12 @@ export default {
 </script>
 
 <style>
+h2 {
+  align-items: center;
+  color: crimson;
+}
 table {
+  align-items: center;
   width: 100%;
   border-collapse: collapse;
 }
@@ -99,6 +108,7 @@ table {
 th,
 td {
   padding: 8px;
+  border: 3px solid blueviolet;
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
